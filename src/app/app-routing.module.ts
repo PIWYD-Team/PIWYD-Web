@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes }	from '@angular/router';
 
 import { AuthRoute, FaceAuthRoute } from './auth/auth.routes';
-import { SignInRoute } from './sign-in/sign-in.routes';
+import { SignUpRoute } from './sign-up/sign-up.routes';
 
 const routes: Routes = [
   AuthRoute,
-  SignInRoute,
   FaceAuthRoute,
+  SignUpRoute,
   { path: '**', redirectTo: '/auth', pathMatch: 'full' }
 ];
 

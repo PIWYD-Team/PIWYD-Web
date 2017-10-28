@@ -1,22 +1,22 @@
 <div id="face-auth-root" style="text-align:center">
-        <img width="200" [src]="piwydSrc">
-        <div class="container">
-            <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-              <div class="panel panel-login">
-                <div class="panel-body">
-                    <div class="col-md-6"> 
-                        <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onCamSuccess($event)" (onError)="onCamError($event)"></ack-webcam>
-                        <!--<button (click)="genBase64()"> generate base64 </button>
-                        <button (click)="genPostData()"> generate post data </button>-->
-                    </div>
-                    <div  class="col-md-6" >
-                        <p>Face recognition in progress ...</p>
-                        <button>Take the picture</button>
-                    </div>
-                </div>
-              </div>
+  <img width="200" [src]="piwydSrc">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-body">
+            <div class="col-md-6">
+              <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onCamSuccess($event)" (onError)="onCamError($event)"></ack-webcam>
+              <button (click)="genBase64()"> generate base64 </button>
+			        <button (click)="genPostData()"> generate post data </button>
+            </div>
+            <div class="col-md-6">
+              <p>Face recognition in progress ...</p>
+              <button>Take the picture</button>
             </div>
           </div>
         </div>
+      </div>
     </div>
+  </div>
+</div>

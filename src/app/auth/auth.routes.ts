@@ -1,5 +1,5 @@
-import { AuthComponent } from './auth.component';
-import { FaceAuthComponent } from './face-auth.component';
+import {AuthComponent} from './auth.component';
+import {FaceAuthComponent} from './face-auth.component';
 
 export const AuthRoute = {
   path: 'auth',
@@ -9,9 +9,9 @@ export const AuthRoute = {
 export const FaceAuthRoute = {
   path: 'face-auth',
   component: FaceAuthComponent
-}
+};
 
 export const AuthComponents = [
-    AuthComponent,
-    FaceAuthComponent
-]
+  AuthComponent,
+  FaceAuthComponent
+];

@@ -1,0 +1,40 @@
+<div id="auth-root" style="text-align:center">
+  <img width="200" [src]="piwydSrc">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="login-form" method="post" role="form" style="display: block;">
+                  <fieldset>
+                    <legend>Sign up</legend>
+                    <div class="form-group">
+                      <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Confirm password">
+                    </div>
+                    <ack-webcam [(ref)]="webcam" [options]="options" (onSuccess)="onCamSuccess($event)" (onError)="onCamError($event)"></ack-webcam>
+                    <button class="btn-primary">Take a picture</button>
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                          <button (click)="onClick()" name="login-submit" id="login-submit" tabindex="4" class="form-control btn-primary btn-login">Sign in</button>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
