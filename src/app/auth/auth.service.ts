@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import {Headers, Http, RequestOptions} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -17,7 +17,13 @@ export class AuthService {
       'password': password
     };
 
-    return this.http.post(this.FIRST_STEP_URL, params)
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers, withCredentials: true});
+
+    // TODO: Pass the token in the headers
+
+    return this.http.post(this.FIRST_STEP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
 
@@ -33,7 +39,11 @@ export class AuthService {
       'picture': picture
     };
 
-    return this.http.post(this.SECOND_STEP_URL, params)
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers, withCredentials: true});
+
+    return this.http.post(this.SECOND_STEP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
                       return response.json().data;
@@ -42,7 +52,6 @@ export class AuthService {
   }
 
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 }

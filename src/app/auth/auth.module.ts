@@ -6,6 +6,8 @@ import {AuthComponents} from './auth.routes';
 
 import {AuthService} from './auth.service';
 import {SharedModule} from '../shared/shared.module';
+import {TokenService} from './token.service';
+import {FaceAuthGuardService} from './face-auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import {SharedModule} from '../shared/shared.module';
     SharedModule
   ],
   providers: [
-    AuthComponents,
-    AuthService
+    AuthService,
+    TokenService,
+    FaceAuthGuardService
   ]
 })
 export class AuthModule {

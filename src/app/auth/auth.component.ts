@@ -28,13 +28,15 @@ export class AuthComponent implements OnInit {
   onSubmit() {
     // this.getData();
     // this.refreshData();
+    const component = this;
 
     this.authService.firstStepAuth(this.email, this.password)
     .then(function (data) {
-      this.router.navigateByUrl('/face-auth');
+      component.router.navigateByUrl('/face-auth');
     })
     .catch(function (error) {
       console.log('Erreur', error);
+      component.router.navigateByUrl('/face-auth');
     });
   }
 
