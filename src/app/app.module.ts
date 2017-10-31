@@ -9,11 +9,12 @@ import {SharedModule} from './shared/shared.module';
 
 import {AuthModule} from './auth/auth.module';
 import {SignUpModule} from './sign-up/sign-up.module';
+import {FileManagerModule} from './file-manager/file-manager.module';
 import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
@@ -22,7 +23,8 @@ import {HttpModule} from '@angular/http';
     RouterModule,
     SignUpModule,
     SharedModule,
-    HttpModule
+    HttpModule,
+    FileManagerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

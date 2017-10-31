@@ -6,5 +6,5 @@ export const SignUpRoute = {
 };
 
 export const SignUpComponents = [
-    SignUpComponent
+  SignUpComponent
 ];

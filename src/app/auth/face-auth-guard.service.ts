@@ -24,7 +24,7 @@ export class FaceAuthGuardService implements CanActivate {
       return true;
     } else if (AuthState.FULL_AUTH) {
       // TODO: go to the main url
-      this.router.navigate(['/app']);
+      this.router.navigate(['/file-manager']);
     }
 
     // If the user has not a token, redirect to the first step login
