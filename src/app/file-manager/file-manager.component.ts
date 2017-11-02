@@ -12,4 +12,7 @@ export class FileManagerComponent implements OnInit {
   ngOnInit() {
   }
 
+  download() {
+    console.log('coucou');
+  }
 }

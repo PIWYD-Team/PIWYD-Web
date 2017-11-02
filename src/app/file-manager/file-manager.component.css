@@ -1,0 +1,20 @@
+.table-header-fixed thead {
+  width: 100%;
+  height: 37px;
+}
+.table-header-fixed tbody {
+  height: calc(100vh - 37px);
+  overflow-y: auto;
+  width: 100%;
+}
+.table-header-fixed thead, .table-header-fixed tbody, .table-header-fixed tr, .table-header-fixed td, .table-header-fixed th {
+  display: block;
+}
+.table-header-fixed tbody td, .table-header-fixed thead > tr> th {
+  float: left;
+  border-bottom-width: 0;
+}
+
+.table-files > tbody > tr:hover {
+  cursor: pointer;
+}
