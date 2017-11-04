@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FileManagerComponent implements OnInit {
 
+  public acceptedExtensions = 'image/*, audio/*, video/*, .xlsx, .xls, .doc, .docx, .ppt, .pptx, .txt, .pdf, .zip, .tar, .html, .xml, .js';
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  uploadFile() {
+
   }
 
   download() {

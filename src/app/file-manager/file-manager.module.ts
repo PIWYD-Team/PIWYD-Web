@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FileManagerComponents} from './file-manager.routes';
+import {FileManagerGuardService} from './file-manager-guard.service';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {FileManagerComponents} from './file-manager.routes';
     CommonModule
   ],
   providers: [
-    FileManagerComponents
+    FileManagerComponents,
+    FileManagerGuardService
   ]
 })
 export class FileManagerModule { }
