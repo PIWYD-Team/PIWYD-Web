@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FileManagerComponents} from './file-manager.routes';
 import {FileManagerGuardService} from './file-manager-guard.service';
+import {TokenService} from '../auth/token.service';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import {FileManagerGuardService} from './file-manager-guard.service';
     CommonModule
   ],
   providers: [
-    FileManagerComponents,
+    TokenService,
     FileManagerGuardService
   ]
 })

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { SignUpComponents } from './sign-up.routes';
 import {SharedModule} from '../shared/shared.module';
+import {TokenService} from '../auth/token.service';
+import {SignUpService} from './sign-up.service';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -10,8 +13,12 @@ import {SharedModule} from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    FormsModule
   ],
-  providers: [SignUpComponents]
+  providers: [
+    TokenService,
+    SignUpService
+  ]
 })
 export class SignUpModule { }

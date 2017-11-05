@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
-import 'rxjs/add/operator/map';
 
 import {AuthService} from './auth.service';
 
@@ -15,8 +14,8 @@ export class AuthComponent implements OnInit {
   title = 'Authentication';
   piwydSrc = '';
 
-  email: String;
-  password: String;
+  email: string;
+  password: string;
 
   constructor(private http: Http, private router: Router, private authService: AuthService) {
     this.piwydSrc = 'assets/piwyd.png';

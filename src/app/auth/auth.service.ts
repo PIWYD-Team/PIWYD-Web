@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http: Http) { }
 
-  public firstStepAuth(username: String, password: String): Promise<any> {
+  public firstStepAuth(username: string, password: string): Promise<any> {
     const params = {
       'username': username,
       'password': password
@@ -19,9 +19,7 @@ export class AuthService {
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    const options = new RequestOptions({headers: headers, withCredentials: true});
-
-    // TODO: Pass the token in the headers
+    const options = new RequestOptions({headers: headers, withCredentials: false});
 
     return this.http.post(this.FIRST_STEP_URL, params, options)
                     .toPromise()
@@ -42,6 +40,8 @@ export class AuthService {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
     const options = new RequestOptions({headers: headers, withCredentials: true});
+
+    // TODO: Pass the token in the headers
 
     return this.http.post(this.SECOND_STEP_URL, params, options)
                     .toPromise()
