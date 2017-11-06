@@ -35,7 +35,6 @@ export class AuthComponent implements OnInit {
     })
     .catch(function (error) {
       console.log('Erreur', error);
-      component.router.navigateByUrl('/face-auth');
     });
   }
 

@@ -49,10 +49,10 @@ export class SignUpComponent implements OnInit {
 
     this.signupService.signup(this.email, this.password, this.picture)
     .then(function(data) {
-      component.router.navigateByUrl('/file-manager');
+      component.router.navigateByUrl('/auth');
     })
     .catch(function(err) {
-      console.log('Error while trying to signup');
+      console.log('Error while trying to signup', err);
       return false;
     });
 

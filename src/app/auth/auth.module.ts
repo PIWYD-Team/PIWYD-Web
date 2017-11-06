@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {JwtHelper} from 'angular2-jwt';
 
 import {AuthComponents} from './auth.routes';
 
@@ -21,7 +22,8 @@ import {FaceAuthGuardService} from './face-auth-guard.service';
   providers: [
     AuthService,
     TokenService,
-    FaceAuthGuardService
+    FaceAuthGuardService,
+    JwtHelper
   ]
 })
 export class AuthModule {

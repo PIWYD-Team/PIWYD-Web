@@ -4,7 +4,7 @@ import {Http, RequestOptions, Headers} from '@angular/http';
 @Injectable()
 export class SignUpService {
 
-  private SIGN_UP_URL = '/sign-up';
+  private SIGN_UP_URL = 'http://localhost:8080/api/users';
 
   constructor(private http: Http) { }
 

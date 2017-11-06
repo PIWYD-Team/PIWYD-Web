@@ -20,7 +20,7 @@ export class FaceAuthGuardService implements CanActivate {
 
     console.log('Try to go to face-auth route. State : ', authState);
 
-    if (AuthState.FIRST_STEP_AUTH === authState) {
+    if (AuthState.FIRST_STEP_AUTH.valueOf() === authState.valueOf()) {
       return true;
     } else if (AuthState.FULL_AUTH) {
       // TODO: go to the main url

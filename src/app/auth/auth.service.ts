@@ -6,8 +6,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
-  private FIRST_STEP_URL = '/auth';
-  private SECOND_STEP_URL = '/auth2';
+  private FIRST_STEP_URL = 'http://localhost:8080/login';
+  private SECOND_STEP_URL = 'http://localhost:8080/loginFace';
 
   constructor(private http: Http) { }
 
@@ -24,10 +24,9 @@ export class AuthService {
     return this.http.post(this.FIRST_STEP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
-
-                      // TODO: Save the temp token provided by the server in the session
-
-                      return response.json().data;
+                      const token: string = response.headers.get('Authorization');
+                      localStorage.setItem('token', token.split(' ')[1]);
+                      return true;
                     })
                     .catch(this.handleError);
   }
@@ -39,14 +38,17 @@ export class AuthService {
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    const options = new RequestOptions({headers: headers, withCredentials: true});
+    headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    const options = new RequestOptions({headers: headers, withCredentials: false});
 
     // TODO: Pass the token in the headers
 
     return this.http.post(this.SECOND_STEP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
-                      return response.json().data;
+                      const token: string = response.headers.get('Authorization');
+                      localStorage.setItem('token', token.split(' ')[1]);
+                      return true;
                     })
                     .catch(this.handleError);
   }
