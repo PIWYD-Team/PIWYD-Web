@@ -22,7 +22,6 @@ export class SignUpService {
     return this.http.post(this.SIGN_UP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
-                      // TODO: Stocker le token dans le localStorage
                       return response.json().data;
                     })
                     .catch(this.handleError);
