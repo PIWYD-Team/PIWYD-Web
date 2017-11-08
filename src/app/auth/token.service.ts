@@ -13,10 +13,20 @@ export class TokenService {
 
     if (token) {
       const decoded = this.jwtHelper.decodeToken(token);
-
       return decoded.authenticationStatus;
     }
 
     return AuthState.NO_AUTH;
+  }
+
+  getUser(): any {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      const decoded = this.jwtHelper.decodeToken(token);
+      return decoded.user;
+    }
+
+    return null;
   }
 }

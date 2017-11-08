@@ -41,8 +41,6 @@ export class AuthService {
     headers.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
     const options = new RequestOptions({headers: headers, withCredentials: false});
 
-    // TODO: Pass the token in the headers
-
     return this.http.post(this.SECOND_STEP_URL, params, options)
                     .toPromise()
                     .then(function(response) {
