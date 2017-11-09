@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FileManagerService} from './file-manager.service';
+import {saveAs} from 'file-saver';
+
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-file-manager',
@@ -12,31 +15,58 @@ export class FileManagerComponent implements OnInit {
 
   newFile: File;
   newFileName: string;
-  files;
+  files: Array<any>;
 
   constructor(private fileManagerService: FileManagerService) { }
 
   ngOnInit() {
-    this.fileManagerService.getAllUserFiles();
+    this.getAllFiles();
+  }
+
+  getAllFiles() {
+    const component = this;
+    this.fileManagerService.getAllUserFiles()
+      .then(function (data) {
+        component.files = data;
+      })
+      .catch(function (err) {
+        console.log('Erreur lors du chargement des fichiers de l\'utilisateur', err);
+      });
   }
 
   onFileChange(file) {
-    this.newFile = file;
-    this.newFileName = file.name;
+    if (file) {
+      this.newFile = file;
+      this.newFileName = file.name;
+    }
   }
 
   onSubmitUpload() {
     console.log('File : ', this.newFile);
+    const component = this;
 
     this.fileManagerService.uploadFile(this.newFile)
       .then(function(data) {
         console.log('Retour d\'upload file', data);
+        component.getAllFiles();
       }).catch(function (err) {
-        console.log('Erreur', err);
+        console.log('Erreur lors de l\'ajout du fichier', err);
       });
   }
 
-  download() {
-    console.log('coucou');
+  download(file) {
+    this.fileManagerService.downloadFile(file.id)
+      .then(function (data) {
+        const blob = new Blob([data]);
+        saveAs(blob, file.name);
+
+        /*
+        const url = window.URL.createObjectURL(blob);
+        window.open(url);
+        */
+      })
+      .catch(function (err) {
+        console.log('Erreur lors du téléchargement du fichier', err);
+      });
   }
 }

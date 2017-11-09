@@ -35,22 +35,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><a href="#" target="_blank">File 1</a></td>
-            <td>Word document</td>
-            <td>122 Kb</td>
+          <tr *ngFor="let file of files">
+            <td>{{file.name}}</td>
+            <td>??</td>
+            <td>?? Kb</td>
             <td>
-              <button class="btn btn-secondary" (click)="download()">
-                <img src="assets/svg/si-glyph-file-download.svg" width="16"/>
-              </button>
-            </td>
-          </tr>
-          <tr>
-            <td>File 2</td>
-            <td>PDF document</td>
-            <td>438 Kb</td>
-            <td>
-              <button class="btn btn-secondary">
+              <button class="btn btn-secondary" (click)="download(file)">
                 <img src="assets/svg/si-glyph-file-download.svg" width="16"/>
               </button>
             </td>
