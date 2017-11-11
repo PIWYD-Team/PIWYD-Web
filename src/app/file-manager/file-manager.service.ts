@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers, ResponseContentType} from '@angular/http';
 import {TokenService} from '../auth/token.service';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class FileManagerService {
 
-  private PREFIX_URL = 'http://localhost:8080/api/files';
-  private ALL_FILES_URL: string = this.PREFIX_URL + '/users/';
-  private UPLOAD_URL: string = this.PREFIX_URL + '/upload';
-  private DOWNLOAD_URL: string = this.PREFIX_URL + '/download/';
+  private ALL_FILES_URL: string = environment.apiUrl + '/api/files/users/';
+  private UPLOAD_URL: string = environment.apiUrl + '/api/files/upload';
+  private DOWNLOAD_URL: string = environment.apiUrl + '/api/files/download/';
 
   constructor(private http: Http, private tokenService: TokenService) { }
 

@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import {Headers, Http, RequestOptions} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class AuthService {
 
-  private PREFIX_URL = 'http://localhost:8080';
-  private FIRST_STEP_URL = this.PREFIX_URL + '/login';
-  private FIRST_STEP_NEW_PASSWORD_URL = this.PREFIX_URL + '/loginNewPassword';
-  private SECOND_STEP_URL = this.PREFIX_URL + '/loginFace';
+  private FIRST_STEP_URL = environment.apiUrl + '/login';
+  private FIRST_STEP_NEW_PASSWORD_URL = environment.apiUrl + '/loginNewPassword';
+  private SECOND_STEP_URL = environment.apiUrl + '/loginFace';
 
   constructor(private http: Http) { }
 

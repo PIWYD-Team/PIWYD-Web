@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --ssl 1 --ssl-key ./ssl/piwyd.key --ssl-cert ./ssl/piwyd.crt",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

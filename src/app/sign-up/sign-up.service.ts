@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import {Http, RequestOptions, Headers} from '@angular/http';
+import {environment} from "../../environments/environment";
 
 @Injectable()
 export class SignUpService {
 
-  private SIGN_UP_URL = 'http://localhost:8080/api/users';
+  private SIGN_UP_URL = environment.apiUrl + '/api/users';
 
   constructor(private http: Http) { }
 
