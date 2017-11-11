@@ -6,8 +6,10 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
-  private FIRST_STEP_URL = 'http://localhost:8080/login';
-  private SECOND_STEP_URL = 'http://localhost:8080/loginFace';
+  private PREFIX_URL = 'http://localhost:8080';
+  private FIRST_STEP_URL = this.PREFIX_URL + '/login';
+  private FIRST_STEP_NEW_PASSWORD_URL = this.PREFIX_URL + '/loginNewPassword';
+  private SECOND_STEP_URL = this.PREFIX_URL + '/loginFace';
 
   constructor(private http: Http) { }
 
@@ -29,6 +31,27 @@ export class AuthService {
                       return true;
                     })
                     .catch(this.handleError);
+  }
+
+  public firstStepAuthNewPassword(username: string, password: string, newPassword: string) {
+    const params = {
+      'username': username,
+      'password': password,
+      'newPassword': newPassword
+    };
+
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const options = new RequestOptions({headers: headers, withCredentials: false});
+
+    return this.http.post(this.FIRST_STEP_NEW_PASSWORD_URL, params, options)
+      .toPromise()
+      .then(function(response) {
+        const token: string = response.headers.get('Authorization');
+        localStorage.setItem('token', token.split(' ')[1]);
+        return true;
+      })
+      .catch(this.handleError);
   }
 
   public secondStepAuth(picture: any): Promise<any> {

@@ -21,8 +21,10 @@ export class FileManagerGuardService implements CanActivate {
     if (AuthState.NO_AUTH === authState) {
       // If the user has not a token, redirect to the first step login
       this.router.navigate(['/auth']);
+      return false;
     } else if (AuthState.FIRST_STEP_AUTH === authState) {
       this.router.navigate(['/face-auth']);
+      return false;
     }
 
     return true;

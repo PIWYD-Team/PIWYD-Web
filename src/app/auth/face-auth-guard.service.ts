@@ -22,9 +22,9 @@ export class FaceAuthGuardService implements CanActivate {
 
     if (AuthState.FIRST_STEP_AUTH.valueOf() === authState.valueOf()) {
       return true;
-    } else if (AuthState.FULL_AUTH) {
-      // TODO: go to the main url
+    } else if (AuthState.FULL_AUTH.valueOf() === authState.valueOf()) {
       this.router.navigate(['/file-manager']);
+      return false;
     }
 
     // If the user has not a token, redirect to the first step login
