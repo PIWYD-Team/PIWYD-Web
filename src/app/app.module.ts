@@ -11,6 +11,8 @@ import {AuthModule} from './auth/auth.module';
 import {SignUpModule} from './sign-up/sign-up.module';
 import {FileManagerModule} from './file-manager/file-manager.module';
 import {HttpModule} from '@angular/http';
+import { AdminComponent } from './admin/admin.component';
+import {AdminModule} from "./admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import {HttpModule} from '@angular/http';
     SignUpModule,
     SharedModule,
     HttpModule,
-    FileManagerModule
+    FileManagerModule,
+    AdminModule
   ],
   providers: [],
   bootstrap: [AppComponent]

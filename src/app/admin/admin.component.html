@@ -1,0 +1,92 @@
+<div class="admin-bg">
+  <div class="container" style="height: 100%;">
+    <div class="row" style="height: 100%;">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="row">
+          <div class="col-md-12" style="text-align: center;">
+            <h1>Administration</h1>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12">
+                <form (ngSubmit)="onSubmit()">
+                  <fieldset>
+                    <legend>Règles de sécurité des mots de passe</legend>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Minuscules obligatoires : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="radio" name="lowercase" [value]="0" [(ngModel)]="requireLowercase" /> Non
+                        <input type="radio" name="lowercase" [value]="1" [(ngModel)]="requireLowercase" /> Oui
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Majuscules obligatoires : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="radio" name="uppercase" [value]="0" [(ngModel)]="requireUppercase" /> Non
+                        <input type="radio" name="uppercase" [value]="1" [(ngModel)]="requireUppercase" /> Oui
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Chiffres obligatoires : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="radio" name="number" [value]="0" [(ngModel)]="requireNumber" /> Non
+                        <input type="radio" name="number" [value]="1" [(ngModel)]="requireNumber" /> Oui
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Caractères spéciaux obligatoires : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="radio" name="special" [value]="0" [(ngModel)]="requireSpecialChar" /> Non
+                        <input type="radio" name="special" [value]="1" [(ngModel)]="requireSpecialChar" /> Oui
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Longueur minimum : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="number" name="minimum" class="form-control" [(ngModel)]="minLength" required />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="col-md-7">
+                        <label>Durée de validité des mots de passe (en jours) : </label>
+                      </div>
+                      <div class="col-md-5">
+                        <input type="number" name="expiration" class="form-control" [(ngModel)]="expirationTime" required />
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-6 col-md-offset-3" style="text-align: center;">
+                          <button type="submit" name="admin-submit" id="admin-submit" class="btn btn-primary">Save</button>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

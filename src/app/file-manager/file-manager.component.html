@@ -9,9 +9,9 @@
       <form id="upload-form" (ngSubmit)="onSubmitUpload()" #newFileForm="ngForm">
         <div class="row">
           <div class="col-md-auto">
-              <label for="new-file" class="btn btn-secondary">
-                + <input type="file" id="new-file" name="newFile" [accept]="acceptedExtensions" (change)="onFileChange($event.target.files[0])" style="display: none;"/>
-              </label>
+            <label for="new-file" class="btn btn-secondary">
+              + <input type="file" id="new-file" name="newFile" [accept]="acceptedExtensions" (change)="onFileChange($event.target.files[0])" style="display: none;"/>
+            </label>
           </div>
           <div class="col-md-auto">
               {{newFileName}}
